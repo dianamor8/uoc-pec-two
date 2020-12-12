@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap');
+
+@mixin media-footer($min-or-max, $breakpoint) {
+  @media screen and (#{$min-or-max}-width: $breakpoint * 1px) {
+    @content;
+  }
+}
+
+.body-grid {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: 'header' 'main' 'footer';
+
+  font-family: $font-family-sans-serif;
+}
+  
+.header-grid {
+  margin: 0;
+}
+  
+.main-grid {
+  background-image: url("./../../assets/images/audiencia.jpg");
+  background-size: cover;
+  margin: 0;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+
+  @each $modifier , $breakpoint in $map-grid-props {
+    @include media-footer('min', $breakpoint) {
+      @if $breakpoint < $grid__bp-sm {
+        grid-template-rows: 180px 200px 1fr;
+      }
+
+      @if $breakpoint >= $grid__bp-sm and $breakpoint < $grid__bp-md {
+        grid-template-rows: 0.4fr 0.8fr 1fr;
+      }
+      
+      @if $breakpoint >= $grid__bp-md and $breakpoint < $grid__bp-lg {
+        grid-template-rows: 0.4fr 0.9fr 1fr;
+      }
+      
+      @if $breakpoint >= $grid__bp-lg {
+        grid-template-rows: 0.5fr 1fr 1fr;
+      }
+    }
+  }
+}
+
+.main-grid__img {
+  align-self: center;
+  width: 98%;
+  max-height: 480px;
+}
+
+.main-grid__h1 {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 4rem;
+  font-family: 'Londrina Solid', cursive;
+  
+  @each $modifier , $breakpoint in $map-grid-props {
+    @include media-footer('min', $breakpoint) {
+      @if $breakpoint < $grid__bp-sm {
+        font-size: 3rem;
+      }
+
+      @if $breakpoint >= $grid__bp-sm and $breakpoint < $grid__bp-md {
+        font-size: 3rem;
+      }
+      
+      @if $breakpoint >= $grid__bp-md and $breakpoint < $grid__bp-lg {
+        font-size: 3.5rem;
+      }
+      
+      @if $breakpoint >= $grid__bp-lg {
+        font-size: 4rem;
+      }
+    }
+  }
+}
+
+.main-grid__video {
+  min-width: 60%;
+  display: flex;
+  justify-content: center;
+}
+
+.main-grid__video--frame {
+  width: 100%;
+
+  @each $modifier , $breakpoint in $map-grid-props {
+    @include media-footer('min', $breakpoint) {
+      @if $breakpoint < $grid__bp-sm {
+        width: 100%;
+        min-height: 170px;
+      }
+
+      @if $breakpoint >= $grid__bp-sm and $breakpoint < $grid__bp-md {
+        width: 100%;
+        min-height: 240px;
+      }
+      
+      @if $breakpoint >= $grid__bp-md and $breakpoint < $grid__bp-lg {
+        width: 90%;
+        min-height: 340px;
+      }
+      
+      @if $breakpoint >= $grid__bp-lg {
+        width: 80%;
+        min-height: 340px;
+        align-self: center;
+      }
+    }
+  }
+}
+
+.main-grid__info {
+  color: $uoc-masterbrand;
+  margin: 25px;
+  max-width: 55%;
+  text-align: center;
+}
+
+.main-grid__info--title {
+  font-family: 'Anton', sans-serif;
+  text-align: center;
+}
+
+.main-grid__info--buttons {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+}
+
+.footer-grid {
+  background-color: $uoc-color-complement;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: grid;
+  align-items: center;
+  color: $uoc-masterbrand;
+  
+  @each $modifier , $breakpoint in $map-grid-props {
+    @include media-footer('min', $breakpoint) {
+      @if $breakpoint < $grid__bp-sm {
+        grid-template-rows: 335px 1fr 1fr 1fr;
+        grid-template-areas: "info" "logo" "pages" "icons";
+        grid-gap: 15px;
+      }
+
+      @if $breakpoint >= $grid__bp-sm and $breakpoint < $grid__bp-md {
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 240px 30px 30px;
+        grid-template-areas: "info info" "logo pages" "icons icons";
+      }
+      
+      @if $breakpoint >= $grid__bp-md and $breakpoint < $grid__bp-lg {
+        grid-template-columns: 1fr 3fr 1fr;
+        grid-template-rows: 220px 30px;
+        grid-template-areas: "info info info" "logo pages icons";
+      }
+      
+      @if $breakpoint >= $grid__bp-lg {
+        grid-template-columns: 1fr 3fr 1fr;
+        grid-template-rows: 240px 30px;
+        grid-template-areas: "info info info" "logo pages icons";
+      }
+    }
+  }
+}
+
+.footer-grid__info {
+  grid-column: info-start/info-end;
+  text-align: center;
+}
+
+.footer-grid__logo {
+  grid-column: logo-start/logo-end;
+  text-align: center;
+}
+
+.footer-grid__pages {
+  grid-column: pages-start/pages-end;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  align-items: center;
+}
+
+.footer-grid__pages--a {
+  text-align: center;
+  color: $uoc-masterbrand;
+  text-decoration: none;
+}
+
+.footer-grid__icons {
+  text-align: center;
+  grid-column: icons-start/icons-end;
+  background-color: $uoc-color-complement;
+}
+
+.footer-grid__info--auspiciantes {
+  margin: 20px;
+  display: grid;
+  grid-gap: 10px;
+  justify-content: center;
+  
+  
+  @each $modifier , $breakpoint in $map-grid-props {
+    @include media-footer('min', $breakpoint) {
+      @if $breakpoint < $grid__bp-sm {
+        grid-template-columns: repeat(2, 120px);
+      }
+
+      @if $breakpoint >= $grid__bp-sm and $breakpoint < $grid__bp-md {
+        grid-template-columns: repeat(3, 120px);
+      }
+      
+      @if $breakpoint >= $grid__bp-md and $breakpoint < $grid__bp-lg {
+        grid-template-columns: repeat(5, 140px);
+      }
+      
+      @if $breakpoint >= $grid__bp-lg {
+        grid-template-columns: repeat(5, 180px);
+      }
+    }
+  }
+}
+
+.footer-grid__info--img {
+  max-width: 100%;
+  max-height: 100%;
+}

@@ -20,6 +20,14 @@
  */
 
 @import "layouts/home";
+@import "~bootstrap/scss/bootstrap.scss";
+@import "layouts/gridDesign";
+@import "layouts/flexDesign";
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/variables";
+@import "../../../node_modules/bootstrap/scss/mixins";
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
 /**
  * Do NOT include anything else in this file!

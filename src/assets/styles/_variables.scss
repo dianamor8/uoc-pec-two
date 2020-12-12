@@ -3,6 +3,35 @@
 $font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 $font-family-serif: "Georgia", "Times New Roman", serif;
 
-$uoc-corporate: #000078;
-$uoc-masterbrand: #73edff;
+$uoc-corporate: #1d3557;
+$uoc-masterbrand: #f1faee;
+$uoc-text-base: #000;
+$uoc-color-complement:#e63946;
+$uoc-color-baseuoc: #a8dadc;
+
 $uoc-bg: color.scale($uoc-masterbrand, $lightness: 70%);
+
+$theme-colors: (
+  "primary": $uoc-corporate,
+  "light": $uoc-color-baseuoc,
+);
+
+$body-bg: #fff;
+
+/* ------------------------------------*\
+ #BREAKPOINTS VARIABLES
+\*------------------------------------ */
+
+$grid__bp-sm: 576;
+$grid__bp-md: 768;
+$grid__bp-lg: 992;
+$grid__bp-xl: 1200;
+$grid__cols: 12;
+
+$map-grid-props: (
+  '-xs': 0,
+  '-sm': $grid__bp-sm,
+  '-md' : $grid__bp-md,
+  '-lg' : $grid__bp-lg,
+  '-xl' : $grid__bp-xl
+);
