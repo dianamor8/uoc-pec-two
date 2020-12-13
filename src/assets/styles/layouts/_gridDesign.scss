@@ -236,3 +236,52 @@
   max-width: 100%;
   max-height: 100%;
 }
+
+.main-article {
+  background-image: url("./../../assets/images/band_1.jpg");
+  background-size: cover;
+}
+
+.main-article__h1 {
+  color: $uoc-masterbrand;
+  margin-top: 12px;
+  text-align: center;
+  font-size: 4rem;
+  font-family: 'Londrina Solid', cursive;
+  
+  @each $modifier , $breakpoint in $map-grid-props {
+    @include media-footer('min', $breakpoint) {
+      @if $breakpoint < $grid__bp-sm {
+        font-size: 3rem;
+      }
+
+      @if $breakpoint >= $grid__bp-sm and $breakpoint < $grid__bp-md {
+        font-size: 3rem;
+      }
+      
+      @if $breakpoint >= $grid__bp-md and $breakpoint < $grid__bp-lg {
+        font-size: 3.5rem;
+      }
+      
+      @if $breakpoint >= $grid__bp-lg {
+        font-size: 4rem;
+      }
+    }
+  }
+}
+
+.main__figure {
+  background-color: $uoc-masterbrand;
+  color: $uoc-corporate;
+  margin: 20px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.main__content {
+  justify-content: center;
+}
+
+.article {
+  margin: 40px;
+}
